@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Search Application</title>
+    <script src="/static/script.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>Tweet Search Application</h1>
+        <div class="search-bar">
+            <select id="searchType" title="Search Type">
+                <option value="text">Text</option>
+                <option value="hashtag">Hashtag</option>
+                <option value="user">Username</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Enter search content or ID">
+            <input type="number" id="limitInput" placeholder="Limit" value="10" min="1">
+            <button id="searchButton">Search</button>
+        </div>
+        <div class="search-options">
+            <label for="startTime">Start Time:</label>
+            <input type="text" id="startTime" pattern="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:mm：ss" min="00:00：00" max="23:59:00">
+            <label for="endTime">End Time:</label>
+            <input type="text" id="endTime" pattern="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:mm" min="00:00" max="23:59">
+        </div>
+        <div class="search-results" id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+        <div class="search-bar">
+            <select id="searchType2" title="Search Type">
+                <option value="author">Author</option>
+                <option value="retweet">Tweet ID</option>
+            </select>
+            <input type="text" id="searchInput2" placeholder="Enter search content or ID">
+            <button id="searchButton2">Search</button>
+        </div>
+        <div class="search-results" id="searchResults2">
+            <!-- Search results will be displayed here -->
+        </div>
+        <h2>Top 10 Users</h2>
+        <ul id="topUsers"></ul>
+        <h2>Top 10 Tweets</h2>
+        <ul id="topTweets"></ul>
+    </div>
+
+    <script>
+        // 
+        document.addEventListener("DOMContentLoaded", function() {
+            loadTopUsers();
+            loadTopTweets();
+        });
+    </script>
+</body>
+</html>
